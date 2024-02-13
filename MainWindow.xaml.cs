@@ -14,9 +14,9 @@ namespace Weather_Forecast
         {
             InitializeComponent();
             timers = new DataTime(TimeLabel);
-           
         }
 
+        //Отслеживание нажатия на кнопку !(Проверять TextBox на налчие символов)!
         public void GetWeatherBtn_Click(object sender, RoutedEventArgs e)
         {
             Weather_API weather = new Weather_API(CountryTextBox.Text);
