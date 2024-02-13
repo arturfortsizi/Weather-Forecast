@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="330,244,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Button_Click"/>
+        <Label x:Name="TemperatureLabel" HorizontalAlignment="Left" Margin="330,305,0,0" VerticalAlignment="Top" Height="40" Width="100" Background="#FFE0D0D0"/>
+        <TextBox x:Name="CountryTextBox" HorizontalAlignment="Left" Margin="320,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Background="#FFDAAAAA" FontSize="16"/>
 
     </Grid>
 </Window>
