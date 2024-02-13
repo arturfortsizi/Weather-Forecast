@@ -1,13 +1,5 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Weather_Forecast.ClientAPI;
 
 namespace Weather_Forecast
 {
@@ -16,14 +8,18 @@ namespace Weather_Forecast
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataTime timers;
+        
         public MainWindow()
         {
             InitializeComponent();
+            timers = new DataTime(TimeLabel);
+           
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void GetWeatherBtn_Click(object sender, RoutedEventArgs e)
         {
-            TemperatureLabel.Content = CountryTextBox.Text;
+            Weather_API weather = new Weather_API(CountryTextBox.Text);
         }
     }
 }
