@@ -24,6 +24,10 @@ namespace Weather_Forecast
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Gay");
+            if (true)
+            {
+                Console.WriteLine("Gay Gay");
+            }
         }
     }
 }
