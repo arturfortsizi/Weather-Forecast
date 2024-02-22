@@ -1,13 +1,7 @@
-﻿using System.Text;
+﻿using System.Drawing;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Weather_Forecast.ClientAPI;
 
 namespace Weather_Forecast
 {
@@ -16,9 +10,21 @@ namespace Weather_Forecast
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataTime timers;
+        
         public MainWindow()
         {
             InitializeComponent();
+            timers = new DataTime(TimeLabel);
+        }
+
+        //System.Windows.Media.Color color = System.Windows.Media.Color.FromRgb(1,1,1);
+
+        //Отслеживание нажатия на кнопку !(Проверять TextBox на налчие символов)!
+        public void GetWeatherBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //BackGround.Background = new SolidColorBrush(color);
+            Weather_API weather = new Weather_API(CountryTextBox.Text);
         }
     }
 }
