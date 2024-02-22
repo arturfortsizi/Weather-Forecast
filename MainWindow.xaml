@@ -14,10 +14,14 @@
         </LinearGradientBrush>
     </Window.OpacityMask>
     <Grid x:Name="BackGround" Background="#FF1D394C">
-        <Button x:Name="GetWeatherBtn" Content="Получить прогноз" HorizontalAlignment="Left" Margin="305,157,0,0" VerticalAlignment="Top" Width="164" Height="30" Click="GetWeatherBtn_Click"/>
-        <Label x:Name="TemperatureLabel" HorizontalAlignment="Left" Margin="330,217,0,0" VerticalAlignment="Top" Height="40" Width="100" Background="#FFE0D0D0"/>
-        <TextBox x:Name="CountryTextBox" materialDesign:HintAssist.Hint="Введите город" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Margin="320,107,0,0" VerticalAlignment="Top" Width="120" Background="#FFDAAAAA" FontSize="16" TextWrapping="Wrap" Cursor="" Height="44"/>
-        <Label x:Name="TimeLabel" HorizontalAlignment="Left" Margin="37,64,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="GetWeatherBtn" Content="Получить прогноз" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" Width="164" Height="30" Click="GetWeatherBtn_Click"/>
+        <Label x:Name="TemperatureLabel" HorizontalAlignment="Center" Margin="0,245,0,0" VerticalAlignment="Top" Height="40" Width="100" Background="#FFE0D0D0" Grid.Column="1"/>
+        <TextBox x:Name="CountryTextBox" materialDesign:HintAssist.Hint="Введите город" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Center" Margin="0,64,0,0" VerticalAlignment="Top" Width="120" Background="#FFDAAAAA" FontSize="16" TextWrapping="Wrap" Cursor="" Height="50"/>
+        <Label x:Name="TimeLabel" HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" FontSize="16" Height="8" Width="8" Grid.Column="1"/>
 
     </Grid>
 </Window>
