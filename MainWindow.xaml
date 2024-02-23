@@ -13,15 +13,27 @@
             <GradientStop Color="#FF8A4545" Offset="1"/>
         </LinearGradientBrush>
     </Window.OpacityMask>
-    <Grid x:Name="BackGround" Background="#FF1D394C">
+    <Grid x:Name="BackGround" Background="#FF436B86">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="GetWeatherBtn" Content="Получить прогноз" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" Width="164" Height="30" Click="GetWeatherBtn_Click"/>
-        <Label x:Name="TemperatureLabel" HorizontalAlignment="Center" Margin="0,245,0,0" VerticalAlignment="Top" Height="40" Width="100" Background="#FFE0D0D0" Grid.Column="1"/>
+        <Label x:Name="TemperatureLabel" HorizontalAlignment="Left" Margin="46,48,0,0" VerticalAlignment="Top" Height="40" Width="519" Background="White" Grid.Column="1" HorizontalContentAlignment="Center" FontSize="16" Foreground="#DD678659" VerticalContentAlignment="Center"/>
         <TextBox x:Name="CountryTextBox" materialDesign:HintAssist.Hint="Введите город" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Center" Margin="0,64,0,0" VerticalAlignment="Top" Width="120" Background="#FFDAAAAA" FontSize="16" TextWrapping="Wrap" Cursor="" Height="50"/>
-        <Label x:Name="TimeLabel" HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" FontSize="16" Height="8" Width="8" Grid.Column="1"/>
-
+        <Label x:Name="TimeLabel" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="16" Height="30" Width="128"/>
+        <Label x:Name="TempMin_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="46,110,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <Label x:Name="TempMax_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="465,110,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <Label x:Name="WindSpeedLabel" HorizontalAlignment="Left" Margin="46,150,0,0" VerticalAlignment="Top" Height="40" Width="519" Background="White" Grid.Column="1" HorizontalContentAlignment="Center" FontSize="16" Foreground="#DD678659" VerticalContentAlignment="Center"/>
+        <Label x:Name="WindGust_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="46,217,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <Label x:Name="WindDeg_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="465,217,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <Label x:Name="HumidityLabel" HorizontalAlignment="Left" Margin="46,256,0,0" VerticalAlignment="Top" Height="40" Width="519" Background="White" Grid.Column="1" HorizontalContentAlignment="Center" FontSize="16" Foreground="#DD678659" VerticalContentAlignment="Center"/>
+        <Label x:Name="Pressure_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="385,324,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <Label x:Name="GrndLevel_Label" Grid.Column="1" HorizontalAlignment="Left" Margin="46,324,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        <ComboBox FontSize="16" IsSynchronizedWithCurrentItem="False" IsEditable="True">
+            <ComboBoxItem>A</ComboBoxItem>
+            <ComboBoxItem>B</ComboBoxItem>
+            <ComboBoxItem>C</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>
