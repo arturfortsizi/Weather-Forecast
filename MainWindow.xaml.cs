@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Drawing;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using Weather_Forecast.ClientAPI;
 
 namespace Weather_Forecast
@@ -19,7 +16,7 @@ namespace Weather_Forecast
         public MainWindow()
         {
             InitializeComponent();
-            timers = new DataTime(TimeLabel);
+            timers = new DataTime(TimeLabel, Time_Img);
         }
 
         //Отслеживание нажатия на кнопку 
