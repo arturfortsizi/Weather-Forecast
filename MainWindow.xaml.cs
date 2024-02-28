@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 using System.Windows;
 using Weather_Forecast.ClientAPI;
 
@@ -17,6 +18,12 @@ namespace Weather_Forecast
         {
             InitializeComponent();
             timers = new DataTime(TimeLabel, Time_Img);
+            Closing += CloseProgram;
+        }
+
+        private void CloseProgram(object? sender, CancelEventArgs e)
+        {
+            timers.TimerStop();
         }
 
         //Отслеживание нажатия на кнопку 
@@ -35,6 +42,12 @@ namespace Weather_Forecast
         */
         public async void GetWeatherBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(CountryTextBox.Text.Length < 3)
+            {
+                TemperatureLabel.Content = "Введите существующий город";
+                return;
+            }
+
             Weather_API weather = new();
             string data = await weather.GetWeather(CountryTextBox.Text);
             var json = JObject.Parse(data);
