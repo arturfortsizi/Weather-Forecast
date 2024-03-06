@@ -10,8 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Sun.png" />
+    <None Remove="SunMoon.png" />
+    <None Remove="Sunrise.png" />
+    <None Remove="Sunset.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
 
 </Project>
