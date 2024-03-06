@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using System.Windows;
 using Weather_Forecast.ClientAPI;
@@ -42,7 +43,7 @@ namespace Weather_Forecast
         */
         public async void GetWeatherBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(CountryTextBox.Text.Length < 3)
+            if (CountryTextBox.Text.Length < 3)
             {
                 TemperatureLabel.Content = "Введите существующий город";
                 return;
@@ -50,19 +51,27 @@ namespace Weather_Forecast
 
             Weather_API weather = new();
             string data = await weather.GetWeather(CountryTextBox.Text);
-            var json = JObject.Parse(data);
+            Error_Label.Visibility = Visibility.Hidden;
 
-            TemperatureLabel.Content = $"Температура: {json["main"]["temp"].ToString()} °C";
-            TempMin_Label.Content = $"Мин: {json["main"]["temp_min"]} °C";
-            TempMax_Label.Content = $"Макс: {json["main"]["temp_max"]} °C";
+            if (data != null)
+            {
+                var json = JObject.Parse(data);
 
-            WindSpeedLabel.Content = $"Скорость ветра: {json["wind"]["speed"]} м/с";
-            WindGust_Label.Content = $"Порыв: {json["wind"]["gust"]} м/с";
-            WindDeg_Label.Content = $"Угол: {json["wind"]["deg"]}";
+                TemperatureLabel.Content = $"Температура: {json["main"]["temp"].ToString()} °C";
+                TempMin_Label.Content = $"Мин: {json["main"]["temp_min"]} °C";
+                TempMax_Label.Content = $"Макс: {json["main"]["temp_max"]} °C";
 
-            HumidityLabel.Content = $"Влажность: {json["main"]["humidity"]}%";
-            GrndLevel_Label.Content = $"Давление(земля): {json["main"]["grnd_level"]} мм";
-            Pressure_Label.Content = $"Давление(море): {json["main"]["pressure"]} мм";
+                WindSpeedLabel.Content = $"Скорость ветра: {json["wind"]["speed"]} м/с";
+                WindGust_Label.Content = $"Порыв: {json["wind"]["gust"]} м/с";
+                WindDeg_Label.Content = $"Угол: {json["wind"]["deg"]}";
+
+                HumidityLabel.Content = $"Влажность: {json["main"]["humidity"]}%";
+                GrndLevel_Label.Content = $"Давление(земля): {json["main"]["grnd_level"]} мм";
+                Pressure_Label.Content = $"Давление(море): {json["main"]["pressure"]} мм";
+            }
+            else
+                Error_Label.Visibility = Visibility.Visible;
+
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Net.Http;
+using System.Security.Policy;
+using System.Windows;
 
 namespace Weather_Forecast.ClientAPI
 {
@@ -13,7 +15,16 @@ namespace Weather_Forecast.ClientAPI
         {
             HttpClient client = new();
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric";
-            return await client.GetStringAsync(url);
+            try
+            {
+                return await client.GetStringAsync(url);
+            }
+            catch(HttpRequestException ex)
+            {
+                MessageBox.Show(ex.Message);
+                //return await;
+            }
+            return null;
         }
     }
 }

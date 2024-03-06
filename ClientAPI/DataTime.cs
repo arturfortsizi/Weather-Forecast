@@ -33,7 +33,7 @@ namespace Weather_Forecast.ClientAPI
             {
                 image.Source = new BitmapImage(new Uri("C:/Users/Artur/Desktop/С#/C#/Weather Forecast/Images/Sunrise.png", UriKind.RelativeOrAbsolute));
             }
-            else if (DateTime.Now.Hour > 11 && DateTime.Now.Hour < 16)
+            else if (DateTime.Now.Hour > 11 && DateTime.Now.Hour < 17)
             {
                 image.Source = new BitmapImage(new Uri("C:/Users/Artur/Desktop/С#/C#/Weather Forecast/Images/Sun.png", UriKind.RelativeOrAbsolute));
                 image.Margin = new Thickness(0,10,0,0); //(0,10,0,0)
