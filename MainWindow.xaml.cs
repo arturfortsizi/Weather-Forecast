@@ -1,6 +1,6 @@
-﻿using MaterialDesignThemes.Wpf;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using Weather_Forecast.ClientAPI;
 
@@ -11,7 +11,10 @@ namespace Weather_Forecast
     /// </summary>
     public partial class MainWindow : Window
     {
-        DataTime timers;
+        private DataTime timers;
+        private bool theme = true;
+        private JSON_Save saveTopic = new();
+        private FileInfo file = new("data.json");
         //System.Windows.Media.Color color = System.Windows.Media.Color.FromRgb(1,1,1);
         //BackGround.Background = new SolidColorBrush(color);
 
@@ -20,6 +23,15 @@ namespace Weather_Forecast
             InitializeComponent();
             timers = new DataTime(TimeLabel, Time_Img);
             Closing += CloseProgram;
+            if (!file.Exists)
+                saveTopic.JSONSave(theme);
+            else
+                theme = saveTopic.JSONLoad();
+
+            if (theme)
+                Light_theme();
+            else
+                Dark_theme();
         }
 
         private void CloseProgram(object? sender, CancelEventArgs e)
@@ -72,6 +84,30 @@ namespace Weather_Forecast
             else
                 Error_Label.Visibility = Visibility.Visible;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            theme = !theme;
+            saveTopic.JSONSave(theme);
+
+            if (theme)
+                Light_theme();
+            else
+                Dark_theme();
+        }
+
+        //Рассписать светлую тему
+        private void Light_theme()
+        {
+            //TemperatureLabel.Foreground = ;
+            MessageBox.Show("Light_theme");
+        }
+
+        //Рассписать тёмную тему
+        private void Dark_theme()
+        {
+            MessageBox.Show("Dark_theme");
         }
     }
 }

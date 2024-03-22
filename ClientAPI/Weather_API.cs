@@ -21,8 +21,9 @@ namespace Weather_Forecast.ClientAPI
             }
             catch(HttpRequestException ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 //return await;
+                Console.WriteLine(ex.Message);
             }
             return null;
         }
